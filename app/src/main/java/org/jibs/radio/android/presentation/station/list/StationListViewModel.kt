@@ -1,4 +1,30 @@
 package org.jibs.radio.android.presentation.station.list
 
-class StationListViewModel {
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+import org.jibs.radio.android.core.util.CoroutineDispatchers
+import org.jibs.radio.android.domain.model.Station
+import org.jibs.radio.android.domain.repository.StationRepository
+import javax.inject.Inject
+
+@HiltViewModel
+class StationListViewModel @Inject constructor(
+    private val stationRepository: StationRepository,
+    private val dispatchers: CoroutineDispatchers
+) : ViewModel() {
+
+    private val _stations = MutableStateFlow<List<Station>>(emptyList())
+    val stations: StateFlow<List<Station>> = _stations
+
+    fun requestStations(){
+        viewModelScope.launch(dispatchers.io) {
+            stationRepository.getStations().collect{
+                _stations.value = it
+            }
+        }
+    }
 }
