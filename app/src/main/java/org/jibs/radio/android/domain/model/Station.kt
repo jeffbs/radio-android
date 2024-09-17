@@ -9,5 +9,6 @@ data class Station(
     val name: String,
     val city: String?,
     val country: String?,
-    val logo: String?
+    val logo: String?,
+    val logoLarge: String?
 )

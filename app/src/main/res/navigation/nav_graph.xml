@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    app:startDestination="@id/stationListFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <fragment
+        android:id="@+id/stationListFragment"
+        android:name="org.jibs.radio.android.presentation.station.list.StationListFragment"
+        android:label="Station List"
+        tools:layout="@layout/fragment_station_list">
+        <action
+            android:id="@+id/action_stationListFragment_to_stationDetailFragment"
+            app:destination="@id/StationDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/StationDetailFragment"
+        android:name="org.jibs.radio.android.presentation.station.detail.StationDetailFragment"
+        android:label="Station Details">
+        <argument
+            android:name="stationId"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

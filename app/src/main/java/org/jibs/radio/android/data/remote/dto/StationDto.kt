@@ -7,7 +7,8 @@ data class StationDto(
     val name: String?,
     val city: String?,
     val country: String?,
-    val logo100x100: String?
+    val logo100x100: String?,
+    val logo300x300: String?
 ){
     fun toDomain(): Station? {
         apply {
@@ -16,7 +17,8 @@ data class StationDto(
                 name = name?: return null,
                 city = city,
                 country = country,
-                logo = logo100x100
+                logo = logo100x100,
+                logoLarge = logo300x300,
             )
         }
     }

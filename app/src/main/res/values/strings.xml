@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">radio-android</string>
+    <string name="app_name">Radio</string>
+    <string name="station_image">Station image</string>
+    <string name="station_description">Description</string>
+    <string name="station_title">Title</string>
+    <string name="station_image_description">Item description</string>
 </resources>
